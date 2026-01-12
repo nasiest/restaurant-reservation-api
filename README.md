@@ -1,4 +1,4 @@
-# Restaurant Reservation System API
+# Restaurant Reservation API
 
 ## Overview
 
@@ -85,7 +85,7 @@ restaurant-reservation/
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/restaurant-reservation.git
+git clone https://github.com/nasiest/restaurant-reservation-api.git
 cd restaurant-reservation
 npm install
 ```
