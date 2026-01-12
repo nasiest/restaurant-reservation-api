@@ -1,0 +1,73 @@
+{
+  "info": {
+    "name": "Tallie Restaurant Reservation API",
+    "_postman_id": "tallie-reservation-api",
+    "description": "REST API for restaurant reservation system with waitlist, seating optimization, and cancellation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Restaurant",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Tallie Test Restaurant\",\n  \"opening_time\": \"10:00:00\",\n  \"closing_time\": \"22:00:00\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/restaurants", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["restaurants"] }
+      }
+    },
+    {
+      "name": "Get Restaurant Details",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/restaurants/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["restaurants","1"] }
+      }
+    },
+    {
+      "name": "Create Reservation",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"restaurant_id\": 1,\n  \"customer_name\": \"Alice\",\n  \"phone\": \"1234567890\",\n  \"party_size\": 2,\n  \"start_time\": \"2026-01-11T19:00:00.000Z\",\n  \"duration\": 120\n}"
+        },
+        "url": { "raw": "http://localhost:3000/reservations", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reservations"] }
+      }
+    },
+    {
+      "name": "Create Reservation - Waitlist",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"restaurant_id\": 1,\n  \"customer_name\": \"Bob\",\n  \"phone\": \"9876543210\",\n  \"party_size\": 6,\n  \"start_time\": \"2026-01-11T19:00:00.000Z\",\n  \"duration\": 120\n}"
+        },
+        "url": { "raw": "http://localhost:3000/reservations", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reservations"] }
+      }
+    },
+    {
+      "name": "Cancel Reservation",
+      "request": {
+        "method": "PATCH",
+        "url": { "raw": "http://localhost:3000/reservations/1/cancel", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reservations","1","cancel"] }
+      }
+    },
+    {
+      "name": "View Waitlist",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/restaurants/1/waitlist", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["restaurants","1","waitlist"] }
+      }
+    }
+  ]
+}
